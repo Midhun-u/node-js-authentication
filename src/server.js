@@ -31,7 +31,7 @@ const server = https.createServer({
     cert : fs.readFileSync(path.join(__dirname , "cert" , "cert.pem"))
 } , app)
 
-server.listen(PORT , "0.0.0.0" , () => {
+server.listen(PORT , "0.0.0.0:3000" , () => {
 
     //function for connection database
     databaseConnection()
