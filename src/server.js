@@ -1,5 +1,5 @@
 import express from 'express'
-import http from 'http'
+import https from 'node:https'
 import path from 'path'
 import fs from 'fs'
 import {fileURLToPath} from 'url'
@@ -26,7 +26,7 @@ app.use("/user" , userRoute)
 
 const __filename = fileURLToPath(import.meta.url)
 const __dirname = path.dirname(__filename)
-const server = http.createServer({
+const server = https.createServer({
     key : fs.readFileSync(path.join(__dirname , "cert" , "key.pem")),
     cert : fs.readFileSync(path.join(__dirname , "cert" , "cert.pem"))
 } , app)
